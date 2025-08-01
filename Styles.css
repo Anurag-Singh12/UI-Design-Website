@@ -1,726 +1,743 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;500;600;700&display=swap");
 
-/* font and colors are imported from google */
+/* Font and colors are imported from google */
 :root {
-    /* all these will be access by variables */
-    --primary-color: #6366F1;
-    --accent-color: #3f83f8;
-    --text-color: #333333;
-    --link-color: #2563eb;
-    --background-color: #ffffff;
-    --light-gray: #f0f0f0;
-    --gray: #808080;
-    --dark-gray: #555;
+  /* All these will be access by variables */
+  --primary-color: #6366f1;
+  --accent-color: #3f83f8;
+  --text-color: #333333;
+  --link-color: #2563eb;
+  --background-color: #ffffff;
+  --light-gray: #f0f0f0;
+  --gray: #808080;
+  --dark-gray: #555;
 }
 
-*{  /* Best pract. */
-    margin: 0;
-    padding: 0;
-    font-family: 'Inter', sans-serif;
-    text-decoration: none;/* this will remove underline from my text */
-
+* {
+  /* best practices */
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  text-decoration: none; /* this will remove underline from my text */
 }
-body{
-    height: 100vh;
-    text-align: center;
-    background-color: beige; /* by using variables i have acces the bg color */
-    padding: 0.1rem; /* 16x0.1= px */
 
+body {
+  height: 100vh;
+  text-align: center;
+  background-color: beige; 
+  padding: 0.1rem; /* 16x0.1= px */
+}
 
+/* START of header class CONTENT */
+
+.header-content { /* header content class which contain  main 3 class(box)*/
+  max-width: 1280px; /* sets limited width here*/
+  margin: 0 auto; /* sets in center acc. to width margin:0 auto; 0 is for top-bottom and auto for left-right.
+  It means that left and right margin will take auto margin according to the width of the element and the width of the container.
+  Generally if you want to put any element at center position then margin:auto works perfectly.*/
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
 }
-.header-content{ /* header content class which contain  main 3 class(box)*/
-    max-width: 1280px; /* sets limited width here*/
-    margin: 0 auto; /* sets in center acc. to width margin:0 auto; 0 is for top-bottom and auto for left-right.
-    It means that left and right margin will take auto margin according to the width of the element and the width of the container.
-    Generally if you want to put any element at center position then margin:auto works perfectly.*/
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem; 
-}
+
 /* now going inside header class : logo ,icon etc */
-.logo{
-    display: flex;
-    align-items: center;
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--text-color); /* by using variables */
-    text-decoration:none ; /*hide underlines*/
-    gap: 0.625rem; /*remove gap b/w logo and text*/
 
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--text-color); /* by using variables */
+  text-decoration: none;
+  gap: 0.625rem; /*remove gap b/w logo and text*/
 }
-.logo-icon{  /*given by designer*/
-    height: 5.875rem;
-    width: 1.938rem;
-}
-/* .logo-text{
-    font-size: 2rem;
-    font-weight: bold;
-} */
-.nav{
-    display: none;/* to make it responsive @media mei felx krte hi gyab hojyenge sab */
-    gap: 1.5em;
 
+.logo-icon {
+  /*given by designer*/
+  height: 5.875rem;
+  width: 1.938rem;
 }
+
+.nav {
+  display: none; /* to make it responsive and define felx in @media */
+  gap: 1.5em;
+}
+
 /*use media query for responsive design
 min width define krdo nav remove ho jyenge*/
-@media screen and (min-width:768px) {
-    .nav{
-        display: flex;
-    }
-}
-.nav-link{  /*class of nav links features*/
-    color: #718096;
-    font-size: 1.125rem;
-    font-weight: 600;
-    transform: color 0.6s; /*link to hover*/
-}
-
-.nav-link:hover{ /* hover to change color also we have to wrtie color*/
-    color: var(--link-color);
-    transform: perspective(450px) translatez(30px);
-}
-.contact-button{
-    display: none;
-    border: none;
-    border-radius: 0.375rem; /*for curve values already given*/
-    background-color: var(--primary-color);/*import from root (given) */
-    color: var(--background-color);/*import from root text color (given) */
-    transform: all  0.1s;
-    padding: 0.75rem 1.5rem; /*padding for space*/
-    font-size: 1rem;
-    font-weight: 600;
-}
-
-/*use media query for responsive design
-min width define krdo contact button remove ho jyenge then we have to create menu button for that*/
-
-@media screen and (min-width:830px) {
-    .contact-button{
-        display: block;
-    }
-}
-.contact-button:hover{
-    background-color:#5254f8 ;
-}
-
-.menu-button{ /* come w resposive design */
-    display: none; /* normal case mei show nhi hoga */
-    border:none;
-    border-radius: 0.375rem;
-    background-color: var(--background-color);
-    font-size: 1rem;
-    padding: 0.5rem 0.9rem;
-    font-weight: 600;
+@media screen and (min-width: 768px) {
+  .nav {
+    display: flex;
   }
-  
-  @media screen and (max-width:830px) { /*use media query for responsive design
-    max width define krdo contact button remove ho jyenge then we have to create menu button for that*/
-      .menu-button{
-          display: block; /* puri space lega */
-        }
-  }
+}
+.nav-link {
+  /*class of nav links features*/
+  color: #718096;
+  font-size: 1.125rem;
+  font-weight: 600;
+  transform: color 0.6s; /*link to hover*/
+}
 
-.menu-icon{
-    height: 1.5rem;
-    width: 1.5rem;
-} /* Here end of header class CONTENT*/
+.nav-link:hover {
+  /* hover to change color also we have to wrtie color*/
+  color: var(--link-color);
+  transform: perspective(450px) translatez(30px);
+}
+
+.contact-button {
+  display: none;
+  border: none;
+  border-radius: 0.375rem;
+  background-color: var(--primary-color); /*import from root (given) */
+  color: var(--background-color); /*import from root text color (given) */
+  transform: all 0.1s;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+
+@media screen and (min-width: 830px) {
+  .contact-button {
+    display: block; /* TO Visible the button above 830px*/
+  }
+}
+.contact-button:hover {
+  background-color: #5254f8;
+}
+
+.menu-button {
+  display: none; /* Not visible in normal window */
+  border: none;
+  border-radius: 0.375rem;
+  background-color: var(--background-color);
+  font-size: 1rem;
+  padding: 0.5rem 0.9rem;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 830px) {
+  .menu-button {
+    display: block;
+  }
+}
+
+.menu-icon {
+  height: 1.5rem;
+  width: 1.5rem;
+} /*END of header class CONTENT*/
 
 /* MAIN CONTENT HERO SECTION */
 
-.main-section{ /* sets limited width here as it in header section*/
-    max-width: 1280px;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    padding: 0.6rem;
-    align-items: center;
-    margin: 0 auto;
+.main-section { 
+  max-width: 1280px; /* setting limited width here as it in header section*/
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 0.6rem;
+  align-items: center;
+  margin: 0 auto;
 }
-.content-left{
-    text-align: center;
-    animation: slidefromleft 1s ease forwards;
-    opacity: 0;
-}
-/* now we have to set keyframe from too to */
-@keyframes slidefromleft {
-    0% { /*from */
-        opacity: 0;/*opacity starting from 0*/
-        transform: translateX(-100%); /*movin from -x out from screen */
-    }
 
-    100%{
-        opacity: 1;
-        transform: translateX(0);
-    }
+.content-left {
+  text-align: center;
+  animation: slidefromleft 1s ease forwards;
+  opacity: 0;
 }
-.section-label{
-    font-size: 1.15rem;
-    font-weight: 600;
-    color: var(--primary-color);
+
+/* Now I'm using keyframe for animation (from too to) */
+@keyframes slidefromleft {
+  0% {
+    /*from */
+    opacity: 0; /*opacity starting from 0 */
+    transform: translateX(-100%); /*movin from -x out from screen */
+  }
+
+  100% {
+    /* to */
+    opacity: 1;
+    transform: translateX(0);
+  }
+} */
+
+.section-label {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--primary-color);
 }
-.section-title{
-    font-size: 2.3rem;
-    padding: 1.1rem;
-    color: var(--text-color);
+.section-title {
+  font-size: 2.3rem;
+  padding: 1.1rem;
+  color: var(--text-color);
 }
-.section-description{
-    color: var(--gray);
-    font-size: 1.13rem;
+.section-description {
+  color: var(--gray);
+  font-size: 1.13rem;
 }
 
 /* button group */
-.button-group{
-    display: flex;
-    gap: 2rem; /*gap b/w to buttons*/
-    /* padding: 1rem; gap b/w to buttons and para */
-    margin-top: 1rem;
-    /* align-items: center; */
-    justify-content: center;
+.button-group {
+  display: flex;
+  gap: 2rem; 
+  margin-top: 1rem;
+  justify-content: center;
 }
 
 .start-button,
-.tour-button{
-    
-    border-radius: 0.375rem;
-    background-color: var(--primary-color);
-    color: var(--background-color);
-    transform: all  0.1s;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    font-weight: 600;
-   
+.tour-button {
+  border-radius: 0.375rem;
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  transform: all 0.1s;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
 }
-.tour-button{
-    background-color: var(--dark-gray);
+.tour-button {
+  background-color: var(--dark-gray);
 }
 
 /* hover to change color */
-.start-button:hover{
-    background-color: #5254f8;
-    
+.start-button:hover {
+  background-color: #5254f8;
 }
 
-.tour-button:hover{
-    background-color: var(--gray);
+.tour-button:hover {
+  background-color: var(--gray);
 }
 
-.content-right{ /*to style content right i.e image */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.content-right { /*to style content right i.e image */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-
-.image-container{
-    border: none;
-    border-radius: 1.225rem;
-    overflow: hidden;  /*bhar nhi jyegi image */
-    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
-    height: 50vh;
+.image-container {
+  border: none;
+  border-radius: 1.225rem;
+  overflow: hidden; /*The image will not go out */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  height: 50vh;
 }
 
-.section-image{
-    height: 100%;
-    width: 100%;
-}
-/* now use media query for big screen now */
-@media screen and (min-width:768px) {
-    .main-section{
-        flex-direction: row;  /*both div row mei ajyenge */
-    }
-    .content-left{
-        max-width: 50%; /* content will move left */
-        text-align: left;
-    }
-    .section-title{ /* Heading will move left*/
-        padding-left: 0;
-    }
-    .button-group{ /*button group will move left with zero padding*/
-        justify-content: start;
-        padding-left: 0;
-    }
-    .section_label{
-        font-size: 1rem;
-    }
-    .section-title{
-        font-size: 3.8rem;
-    }
-    .image-container{
-        height: 67vh;
-    }
-    .section-description{
-        font-size: 1.1rem;
-        color: var(--gray);
-        width: 78%;
-    }
-} /* Hero section ends here */
-
-/* company container */
-
-.company-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2rem;
-    animation: slidefromleft 1s ease forwards; 
+.section-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
-.company-grid{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 3.6rem;
-    padding: 1rem;
-    background-color: var(--light-gray);
-    border: none;
-    border-radius: 0.625rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    padding: 1.8rem 2.5rem;
-}
-
-.company-logo{
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--gray);
-    display: flex;
-    gap: 0.5rem;
-}
-
-.svg-img{
-    height: 1.56rem;
-}
-
-.logo-txt{
-    font-size: 1rem;
-}
-@media screen and (min-width:640px) {
-    .company-grid{
-        grid-template-columns: repeat(4,1fr);
-    }
-    .company-title{
-        font-size: 2.3rem;
-        font-weight: bold;
-    }
-} /* here company container ends*/
-
-/* starting Card Section name feature-container*/
-
-.feature-container{
-    background-color: var(--light-gray);
-    padding: 2.5rem 0;
-    text-align: center;
-}
-
-.feature-content{
-    max-width: 800px;
-    margin: 0 auto; /*similar like other divs*/
-    padding: 0 2rem;
-}
-
-.main-info{
-    display: flex; /*flex taki col define krke ek k niche ek ajye*/
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.main-title{
-    font-size: 2.2rem;
-    font-weight: bold;
-}
-
-.main-description{
-    color: var(--gray);
-    font-size: 1rem;
-}
-
-.feature-grid{
-    display: grid;
-   
-    grid-template-columns: repeat(2,1fr); /*2 col and 1fr gap*/
-    grid-gap: 2rem;
-    margin-top: 1.3rem;
-}
-
-.feature-card{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #6d7890;
-    padding: 1.6rem;
-    border-radius: 1rem;
-    gap: 1rem;
-}
-.feature-info{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-.icon-container{ /*to make icon with white circle*/
-    background-color: var(--background-color);
-    height: 3rem;
-    width: 3rem;
-    border-radius: 50%;
-    display: flex;  
-    justify-content: center;
-    align-items: center;
-}
-
-.feature-svg{ /*class of all img in this div*/
-    width: 1.5rem;
-    height: 1.5rem;
-}
-
-.feature-title{
-    color: white;
-    font-weight: bold;
-    font-size: 1.3rem;
-}
-
-.feature-description{
-    color: white;
-}
-
-.feature-card:nth-child(1){ /*Use : nth-child () - isey same name class ka color change kr skte hai as child bna k */
-    background-color: #fcbf58;
-}
-
-.feature-card:nth-child(2){
-    background-color: #44bfc3;
-}
-
-.feature-card:nth-child(3){
-    background-color: #4a90e2;
-}
-
-.feature-card:nth-child(4){
-    background-color: #FF6289;
-}
-
-.feature-card:nth-child(5){
-    background-color: #7d78b1;
-}
-
-.feature-card:nth-child(6){
-    background-color: #77b05d;
-}
-
-@media screen and (max-width:768px) {
-    .feature-grid{
-        grid-template-columns: repeat(1,1fr);
-    }
-} /* Feature card section ends here */
-
-/* Testimonial Section name:testimonial-container */
-
-.testimonial-container{ /* a other standard pract. */
-    background-color: var(--background-color);
-    padding: 2rem;
-    margin: 0 auto;
-    max-width: 1280px;
-}
-.testimonial-content{ /* flex define krke content ek k niche ek */
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-.testimonial-title{ /* style heading */
-    font-size: 1.875rem;
-    font-weight: bold;
-}
-
-.testimonial-grid{  /* maintain in grid */
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    /* grid-template-columns: repeat(3,1fr); */
-    grid-gap: 2rem; /* gap b/w the cards */
-}
-
-.testimonial-card{ /* card ke andar k properties */
-    display: flex;
-    flex-direction: column;
-    border: 1px solid rgb(171, 163, 163);
-    border-radius: 1rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    padding: 1.2rem;
-    gap: 1rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;/* transition on hoover */
-}
-
-.testimonial-card:hover{
-    transform: scale(1.05);;
-    box-shadow: 0 4px 8px rbga(0,0,0,0.2);
-    border: 1px solid blue;
-}
-
-.testimonial-avatar img{ /* testimonial-avtar ke andar jo img hai */
-    height: 5rem;
-    width: 5rem;
-}
- /* yha toh bs color and size mention kra h */
-.testimonial-text{
-    color: #555;
-    font-size: 0.875rem;
-}
-
-.testimonial-name{
-    color: var(--primary-color);
-    font-size: 1rem;
-}
-
-.testimonial-desc{
-    font-size: 0.875rem;
-    color: #777;
-}
-
-@media screen and (max-width:1031px) {
-    .testimonial-grid{
-        grid-template-columns: repeat(1,1fr);
-    }
-} /* Testimonial section ends here */
-
-/* NEWSLETTER Section */
-
-.newsletter-container{
-    background-color: var(--background-color);
-    max-width: 1280px;
-    height: 40vh;  /* height define zaruri h */
-    margin: 0 auto;
-}
-
-.newsletter-content{ /* in this div class we have left and right content */
-    display: flex;
+/* media query for Window screen*/
+@media screen and (min-width: 768px) {
+  .main-section {
     flex-direction: row;
-    background-color: var(--light-gray);
-    height: 100%;  /* taken 100% height of parent div (newsletter container)*/
-    border-radius: 8px;
-    overflow: hidden; /*with help of this img will curve left overall div will curve */
-    box-shadow: 2.3px 1px 7px rgb(77, 75, 75) ; /* we can avoid this */
-}
-
-.news-left{ /* class of left img */
-    height: 100%; /* taken 100% height of parent div (newsletter container)*/
-    width: 50%; /* news letter container ki width 50% lelega apne parent div ki */
-    display: none;/*normal case mei kuch show nhi hogi*/
-    position: relative; /*to save overlap over div*/
-}
-.news-left img{ /* NEWSLEft k andar jo child hai (img) */
-    position: absolute;
-    inset: 0; /*position in starting*/
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-
-.news-right{  /* ik */
-    display: flex ;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 0.5rem;
-    justify-content: center;
-    align-items: flex-start;
-    width: 98%;
-}
-
-@media screen and (min-width:640px) {
-    .news-left{
-        display: block; /*this will remove img in responsive behaviour*/
-        width: 50%;
-    }
-    .news-right{
-        width: 50%;
-    }
-    .newsletter-container{
-        padding: 2rem;
-    }
-}
-
-.news-info{  /* div of h2,p*/
-    padding:0 3rem;
-}
-
-.news-title{ /*h2-Get the latest updates*/
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--primary-color);
+  }
+  .content-left {
+    max-width: 50%; /*content will move left */
     text-align: left;
-}
-
-.news-desc{ /*p-Sign up for our newsletter*/
-    text-align: left;
-    color: #777;
-}
-
-.news-form{ /*class of form*/
-    padding: 0 3rem;
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 1rem;
-    gap: 0.6rem;
-}
-
-
-.news-email{ /*coming inside the form of input*/
-    background-color: var(--background-color);
-    /* width: 100%; */
-    color: #333;
-    outline: none;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 0.5rem 0.75rem; /*Top Down used padding short hand notation*/
-}
-
-.news-email:focus{ /*Focus state means when u will click on it  */
-    border-color: #2563eb;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-}
-
-.news-send-button{ /*class of button*/
-    background-color: var(--primary-color);
-    color: var(--background-color);
-    border: none;
-    border-radius: 0.25rem;
-    padding: 0.5rem 1rem; /* Top Down used padding short hand notation */
-}
-
-.news-send-button:hover{
-    background-color: var(--link-color);
-}
-
-.privacy-policy{ /*normal text with anchor tag*/
-    font-size: 0.76rem;
-    padding: 0 3rem;
-    color: #777;
-}
-
-.news-link{ /*class of anchor tag*/
-    text-decoration: underline; /* This will underline our anchor tag */
-    color: #2563eb;
-}
-
-@media screen and (min-width:640px) {
-    .news-title{
-        font-size: 2.5rem;
-    }
-} /* NEWSLETTER Section Ends here */
-
-/* Footer Section */
-
-.footer-container{ /*main div Footer Section */
-    background-color: var(--background-color);
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    flex-direction: column;
-    max-width: 1280px;
-}
-
-.footer{ /*main div Footer Section */
-    max-width: 1280px;
-    padding:1.2rem 2.4rem;
-    text-align: left;
-    display: flex;
-    justify-content: space-between;
-    padding-right: 2rem;
-}
-
-.footer-top{ /*whole footer left content*/
-    width: 34%;
-    display: flex;
-    flex-direction: column;
-    gap: 1.65rem;
-}
-
-.logo-svg{ /*only company img ki class*/
-    width: 2rem;
-    height: 6rem;
-}
-
-.comp-logo{ /*com logo as parent class*/
-    display: flex;
-    justify-content: flex-start;
-    margin-bottom: -1.9rem;
-}
-.logo-link{ /*logo w text class */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.8rem;
-    font-size: 1.28rem;
-    font-weight: bold;
-    color: black;
-}
-.social-icon{ /*particular icons */
-    width: 1.5rem;
-    height: 1.5rem;
-}
-.filler-text{
+  }
+  .section-title { 
+    padding-left: 0; /* Heading will move left*/
+  }
+  .button-group {
+    justify-content: start;  /*button group will move left with zero padding*/
+    padding-left: 0;
+  }
+  .section_label {
     font-size: 1rem;
-    color: #777;
-}
-.social{ /*icons ki class*/
-    display: flex;
-    gap: 0.8rem;
-}
-.footer-grid{
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    width: 58%;
-    grid-gap: 5.67rem;
-    padding-top: 2rem;
-}
-
-.footer-grid-heading{
-    font-size: 1.05rem;
-    font-weight: bold;
-    color: var(--text-color);
-    margin-bottom: 1.65rem;
-}
-
-ul{
-    list-style-type: none; /*This will remove dots from the list*/
-}
-.footer-link{
-    color: #777;
-    font-size: 0.875rem;
-}
-.footer-links-list{
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-}
-
-.footer-copyright{
+  }
+  .section-title {
+    font-size: 3.8rem;
+  }
+  .image-container {
+    height: 67vh;
+  }
+  .section-description {
+    font-size: 1.1rem;
     color: var(--gray);
-    font-size: 0.75rem;
-    padding-bottom: 2rem;
-    margin-top: 2rem;
-    padding-top: 1.15rem;
-    border-top: 1px solid #E5E7EB;
+    width: 78%;
+  }
+} /* Hero section ENDS HERE*/
+
+/* COMPANY CONTAINER */
+
+.company-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  animation: slidefromleft 1s ease forwards;
 }
 
-@media screen and (max-width:1080px) {
-    .footer{
-        flex-direction: column;
-        align-items: center;
-    }
-    .footer-top{
-        padding-left: 10rem;
-    }
-    .footer-grid{
-        align-self: center;
-        justify-content: space-evenly;
-    }
+.company-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3.6rem;
+  padding: 1rem;
+  background-color: var(--light-gray);
+  border: none;
+  border-radius: 0.625rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 1.8rem 2.5rem;
 }
 
-@media screen and (max-width:850px) {
-    .footer-top{
-        padding-left: 1rem;
-    }
-    .footer-grid{
-        grid-template-columns: repeat(2,1fr);
-    }
+.company-logo {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--gray);
+  display: flex;
+  gap: 0.5rem;
+}
+
+.svg-img {
+  height: 1.56rem;
+}
+
+.logo-txt {
+  font-size: 1rem;
+}
+@media screen and (min-width: 640px) {
+  .company-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .company-title {
+    font-size: 2.3rem;
+    font-weight: bold;
+  }
+} /* HERE COMPANY CONTAINER ENDS*/
+
+
+/* STARTARTING OF CARDS SECTION name feature-container*/
+
+.feature-container {
+  background-color: var(--light-gray);
+  padding: 2.5rem 0;
+  text-align: center;
+}
+
+.feature-content {
+  max-width: 800px;
+  margin: 0 auto; /*similar like other divs*/
+  padding: 0 2rem;
+}
+
+.main-info {
+  display: flex; 
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.main-title {
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+
+.main-description {
+  color: var(--gray);
+  font-size: 1rem;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /*2 col and 1fr gap*/
+  grid-gap: 2rem;
+  margin-top: 1.3rem;
+}
+
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #6d7890;
+  padding: 1.6rem;
+  border-radius: 1rem;
+  gap: 1rem;
+}
+.feature-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.icon-container { /*to make icon with white circle*/
+  background-color: var(--background-color);
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.feature-svg { /*class of all img in this div*/
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.feature-title {
+  color: white;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.feature-description {
+  color: white;
+}
+
+.feature-card:nth-child(1) { /*Use : nth-child () - BY using this we can change color of same classes by picking them as child*/
+  background-color: #fcbf58;
+}
+
+.feature-card:nth-child(2) {
+  background-color: #44bfc3;
+}
+
+.feature-card:nth-child(3) {
+  background-color: #4a90e2;
+}
+
+.feature-card:nth-child(4) {
+  background-color: #ff6289;
+}
+
+.feature-card:nth-child(5) {
+  background-color: #7d78b1;
+}
+
+.feature-card:nth-child(6) {
+  background-color: #77b05d;
+}
+
+@media screen and (max-width: 768px) {
+  .feature-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+} /* Feature card section ENDS HERE*/
+
+/* STARTS OF Testimonial Section name:testimonial-container */
+
+.testimonial-container {
+  /* Another standard Practices*/
+  background-color: var(--background-color);
+  padding: 2rem;
+  margin: 0 auto;
+  max-width: 1280px;
+}
+
+.testimonial-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.testimonial-title { /* style heading */
+  font-size: 1.875rem;
+  font-weight: bold;
+}
+
+.testimonial-grid { /* maintain in grid */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  /* grid-template-columns: repeat(3,1fr); */
+  grid-gap: 2rem; /* gap b/w the cards */
+}
+
+.testimonial-card { /* Properties inside cards */
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgb(171, 163, 163);
+  border-radius: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1.2rem;
+  gap: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* transition on hoover */
+}
+
+.testimonial-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rbga(0, 0, 0, 0.2);
+  border: 1px solid blue;
+}
+
+.testimonial-avatar img { /*img inside testimonial-avtar */
+  height: 5rem;
+  width: 5rem;
+}
+
+/* Mentioning color and size*/
+.testimonial-text {
+  color: #555;
+  font-size: 0.875rem;
+}
+
+.testimonial-name {
+  color: var(--primary-color);
+  font-size: 1rem;
+}
+
+.testimonial-desc {
+  font-size: 0.875rem;
+  color: #777;
+}
+
+@media screen and (max-width: 1031px) {
+  .testimonial-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+} /* Testimonial section ENDS HERE */
+
+/* START of NEWSLETTER Section */
+
+.newsletter-container {
+  background-color: var(--background-color);
+  max-width: 1280px;
+  height: 40vh; /* height define is necessary */
+  margin: 0 auto;
+}
+
+.newsletter-content { /* in this div classes we have left and right content */
+  display: flex;
+  flex-direction: row;
+  background-color: var(--light-gray);
+  height: 100%; /* taken 100% height of parent div (newsletter container)*/
+  border-radius: 8px;
+  overflow: hidden; /*with help of this img will curve left overall div will curve */
+  box-shadow: 2.3px 1px 7px rgb(77, 75, 75);
+}
+
+.news-left { /* class of left img */
+  height: 100%; /* taken 100% height of parent div (newsletter container)*/
+  width: 50%; /*News letter container will take 50% width of parent div */
+  display: none; /*not visible*/
+  position: relative; /*to save overlap over div*/
+}
+.news-left img { /*child(img) inside NEWSLEFT */
+  position: absolute;
+  inset: 0; /*position in starting*/
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.news-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0.5rem;
+  justify-content: center;
+  align-items: flex-start;
+  width: 98%;
+}
+
+@media screen and (min-width: 640px) {
+  .news-left {
+    display: block; 
+    width: 50%;
+  }
+  .news-right {
+    width: 50%;
+  }
+  .newsletter-container {
+    padding: 2rem;
+  }
+}
+
+.news-info {/* div of h2,p*/
+  padding: 0 3rem;
+}
+
+.news-title { /*h2-name : Get the latest updates*/
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  text-align: left;
+}
+
+.news-desc {/*p-name : Sign up for our newsletter*/
+  text-align: left;
+  color: #777;
+}
+
+.news-form {/*class of form*/
+  padding: 0 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  gap: 0.6rem;
+}
+
+.news-email {/*coming inside the form of input*/
+  background-color: var(--background-color);
+  /* width: 100%; */
+  color: #333;
+  outline: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.5rem 0.75rem; /*Top Down used padding short hand notation*/
+}
+
+.news-email:focus { /*Focus state means when u will click on it  */
+  border-color: #2563eb;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.news-send-button { /*class of button*/
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem; /* Top Down used padding short hand notation */
+}
+
+.news-send-button:hover {
+  background-color: var(--link-color);
+}
+
+.privacy-policy {  /*normal text with anchor tag*/
+  font-size: 0.76rem;
+  padding: 0 3rem;
+  color: #777;
+}
+
+.news-link { /*class of anchor tag*/
+  text-decoration: underline; /* This will underline our anchor tag */
+  color: #2563eb;
+}
+
+@media screen and (min-width: 640px) {
+  .news-title {
+    font-size: 2.5rem;
+  }
+} /* NEWSLETTER Section ENDS HERE */
+
+/* START OF Footer Section */
+
+.footer-container {
+  /*main div Footer Section */
+  background-color: var(--background-color);
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  max-width: 1280px;
+}
+
+.footer {
+  max-width: 1280px;
+  padding: 1.2rem 2.4rem;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 2rem;
+}
+
+.footer-top {
+  /*whole footer left content*/
+  width: 34%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.65rem;
+}
+
+.logo-svg {
+  /*only company img class*/
+  width: 2rem;
+  height: 6rem;
+}
+
+.comp-logo {
+  /*com logo as parent class*/
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: -1.9rem;
+}
+.logo-link {
+  /*logo with text class */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.28rem;
+  font-weight: bold;
+  color: black;
+}
+
+.social-icon {
+  /*particular icons */
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.filler-text {
+  font-size: 1rem;
+  color: #777;
+}
+
+.social {
+  /*classes of icons*/
+  display: flex;
+  gap: 0.8rem;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 58%;
+  grid-gap: 5.67rem;
+  padding-top: 2rem;
+}
+
+.footer-grid-heading {
+  font-size: 1.05rem;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 1.65rem;
+}
+
+ul {
+  list-style-type: none; /*This will remove dots from the list*/
+}
+.footer-link {
+  color: #777;
+  font-size: 0.875rem;
+}
+.footer-links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.footer-copyright {
+  color: var(--gray);
+  font-size: 0.75rem;
+  padding-bottom: 2rem;
+  margin-top: 2rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+@media screen and (max-width: 1080px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-top {
+    padding-left: 10rem;
+  }
+  .footer-grid {
+    align-self: center;
+    justify-content: space-evenly;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .footer-top {
+    padding-left: 1rem;
+  }
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
