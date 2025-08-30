@@ -24,7 +24,7 @@
 body {
   height: 100vh;
   text-align: center;
-  background-color: beige; 
+  background-color: white; 
   padding: 0.1rem; /* 16x0.1= px */
 }
 
@@ -165,7 +165,9 @@ min width define krdo nav remove ho jyenge*/
 .section-label {
   font-size: 1.15rem;
   font-weight: 600;
-  color: var(--primary-color);
+}
+.section-label{
+  color: #6366f1;
 }
 .section-title {
   font-size: 2.3rem;
